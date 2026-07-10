@@ -1,0 +1,84 @@
+class node:
+    def __init__(self,data=None,next=None):
+        self.data=data
+        self.next=next
+class link:
+    def __init__(self,head=None):
+        self.head = head
+        
+    def is_empty(self):
+        return self.head is None
+
+    def insert(self,data):
+        newnode = node(data)
+        temp = self.head
+        if self.is_empty():
+            self.head = newnode
+            return
+        while(temp.next is not None):
+            temp = temp.next
+        
+        temp.next = newnode
+    
+    def traverse(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.data,end='->')
+            temp = temp.next
+     
+    def ins_pos(self,data,pos):
+        temp = self.head
+        newnode = node(data)
+        
+        if pos == 1:
+            newnode.next = self.head
+            self.head=newnode
+            return
+                
+        if pos+1 == self.length():
+            while temp.next is not None:
+                temp = temp.next
+            temp.next = newnode
+            return
+        
+        f_pos = self.length()
+        i=1
+        while(i<=f_pos):
+            if pos-1 == i:
+                break
+            temp = temp.next
+            i+=1
+        newnode.next = temp.next
+        temp.next = newnode
+        
+    def ins_pos2(self,data,pos):
+        lst = []
+        temp = self.head
+        while temp is not None:
+            lst.append(temp)
+            temp = temp.next
+        newnode = node(data)
+        temp = lst[pos-2]
+        newnode.next = temp.next
+        temp.next = newnode  
+      
+    def length(self):
+        temp = self.head
+        l=1
+        while(temp.next is not None):
+            l+=1
+            temp = temp.next
+        return l 
+       
+one = link()
+one.insert(10)
+one.insert(20)
+one.insert(30)
+one.insert(40)
+one.insert(50)
+
+one.traverse()   
+print()
+one.ins_pos(25,3) 
+one.traverse() 
+
