@@ -76,12 +76,42 @@ class link:
         print('position not found !!')
     
     def ins_before(self,data,before):
+        
+        temp = self.head
+        newnode = node(data)
         if self.head is None:
             print('list is empty !!')
             return
+
+        if self.head.data == before:
+            newnode.next = self.head
+            self.head = newnode
+            return
         
+        while temp.next is not None:
+            if temp.next.data == before:
+                newnode.next = temp.next
+                temp.next = newnode                
+                return
+            temp = temp.next
+        print(f"Node '{before}' not found in the list.")
+
+    def ins_before2(self,data,before): 
+        temp = self.head
+        newnode = node(data)
+        loc = self.get_pos(before)
+        if loc == 1:
+            newnode.next = head
+            self.head = newnode
+            return                   
+        i=1
+        while(temp is not None and i<loc-1):
+            temp=temp.next
+            i+=1
+        newnode.next = temp.next
+        temp.next = newnode
         
-    
+                           
     def get_pos(self,data):
         if self.head is None:
             print('list is empaty !!')            
@@ -109,5 +139,8 @@ one.traverse()
 print()
 one.ins_after(25,20)
 one.traverse()
-
+print()
+# one.ins_before(25,20)
+one.ins_before2(25,20)
+one.traverse()
 print(one.get_pos(20))
