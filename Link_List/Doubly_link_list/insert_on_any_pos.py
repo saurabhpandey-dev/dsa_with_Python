@@ -47,6 +47,7 @@ class Link:
         if pos == 1:
             newnode.next = self.head
             newnode.next.prev = newnode
+            self.head.prev = newnode
             self.head = newnode
             return
 
