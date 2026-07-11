@@ -10,7 +10,7 @@ class Link:
     
     def is_empty(self):
         return self.head is None
-    
+        
     def insert(self,data):
         newnode = Node(data)
         temp = self.head
@@ -21,7 +21,7 @@ class Link:
             temp=temp.next
         
         temp.next = newnode
-        newnode.prev = temp.next
+        newnode.prev = temp
     
     def traverse(self):
         temp = self.head
