@@ -25,9 +25,9 @@ class Link:
     def traverse(self):
         temp = self.head
         while temp is not None:
-            print(temp.data,end=' -> ')
+            print(temp.data,end=' <==> ')
             temp = temp.next
-        print(None)
+        print(None,'\n')
     
     def length(self):
         temp = self.head
@@ -73,6 +73,6 @@ one.insert(40)
 one.insert(50)            
 
 one.traverse()
-print()
+
 one.ins_before(25,40)
 one.traverse()
