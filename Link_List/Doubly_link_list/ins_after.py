@@ -25,17 +25,9 @@ class Link:
     def traverse(self):
         temp = self.head
         while temp is not None:
-            print(temp.data,end=' -> ')
+            print(temp.data,end=' <==> ')
             temp = temp.next
-        print(None)
-    
-    def length(self):
-        temp = self.head
-        l=1
-        while(temp.next is not None):
-            l+=1
-            temp = temp.next
-        return l 
+        print(None,'\n')
     
     def ins_after(self,after,data):
               
@@ -73,6 +65,6 @@ one.insert(40)
 one.insert(50)            
 
 one.traverse()
-print()
+
 one.ins_after(50,25)
 one.traverse()
