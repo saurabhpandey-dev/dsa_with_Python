@@ -30,6 +30,8 @@ class link:
         if self.head is None:
             print('list is empaty !!')            
             return
+        if self.head.data == data:
+            return 1
         temp = self.head
         l=1
         while(temp.next is not None):
