@@ -1,6 +1,7 @@
-#program to calculate the avgrage height from a list of height 
+#program to calculate the avgrage height from a list of height without using
+# sum() function and len() function
 
-heights = input('Enter the numbers')
+heights = input('Enter all height saprated by space : ')
 
 lst = heights.split(' ')
 
